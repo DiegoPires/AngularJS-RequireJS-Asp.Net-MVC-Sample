@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<div class="page-header">
+    <h3>Dashboard</h3>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div id="piechart" style="width: 450px; height: 300px;"></div>
+    </div>
+    <div class="col-md-8">
+        <div id="chart_div" style="width: 850px; height: 300px;"></div>
+    </div>
+
+</div>
+
+@section scripts{
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.load("visualization", "1", { packages: ["corechart"] });
+        google.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Task', 'Hours per Day'],
+              ['Enviado', 11],
+              ['Perdido', 2],
+              ['Fechado', 2],
+              ['Pendente', 9]
+            ]);
+
+            var options = {
+                title: 'Status de venda'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            chart.draw(data, options);
+
+            var data = google.visualization.arrayToDataTable([
+          ['Year', 'Sales', 'Expenses'],
+          ['2004', 1000, 400],
+          ['2005', 1170, 460],
+          ['2006', 660, 1120],
+          ['2007', 1030, 540]
+            ]);
+
+            var options = {
+                title: 'Company Performance',
+                hAxis: { title: 'Year', titleTextStyle: { color: 'red' } }
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+    </script>
+}

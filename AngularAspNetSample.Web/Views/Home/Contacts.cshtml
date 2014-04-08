@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "Contacts";
+}
+
+<h2>Contactos</h2>
+
+<div class="row">
+    <div class="col-xs-3">
+
+        <input type="text" style="wid" /> <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i></button>
+
+        <br /><br />
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <td><div style="padding: 10px;">Diego</div></td>
+                </tr>
+                <tr>
+                    <td><div style="padding: 10px;">Boris</div></td>
+                </tr>
+                <tr>
+                    <td><div style="padding: 10px;">Zezinho</div></td>
+                </tr>
+                <tr>
+                    <td><div style="padding: 10px;">Luizinho</div></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="col-xs-9">
+        <div class="page-header">
+
+            <div class="pull-right form-inline">
+                <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">
+                    <i class="glyphicon glyphicon-plus"></i> Criar evento
+                </button>
+                <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">
+                    <i class="glyphicon glyphicon-plus"></i> Enviar proposta
+                </button>
+                <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">
+                    <i class="glyphicon glyphicon-plus"></i> Delegar atividade
+                </button>
+            </div>
+
+            <h3>Boris Mesel </h3>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+
+                <div>/<img id="XXLargeicTmXXLarge5_usertile" src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn2/t5.0-1/186127_100001517077337_7413101_n.jpg" class="c_ic_tile"></div>
+
+                <div style="padding: 10px 5px;">
+                    <div class="CP_Services"><div class="CP_Service" id="ABCH"><a title="Outlook" href="" target="_blank" role="link" name="Outlook" tabindex="-1" aria-hidden="true" style="cursor:default;"><span class="CP_Service_Icon" tabindex="-1" aria-hidden="true"><img src="https://p.pfx.ms/sn/PsaSmall/ABCHActive1.png"></span><span class="CP_Service_Name">Outlook</span></a></div><div class="CP_Service" id="FB"><a title="Facebook" href="http://www.facebook.com/profile.php?id=100001517077337" target="_blank" role="link" name="Facebook" tabindex="0"><span class="CP_Service_Icon" tabindex="-1" aria-hidden="true"><img src="https://p.pfx.ms/sn/PsaSmall/FBActive4.png"></span><span class="CP_Service_Name">Facebook</span></a></div><div class="CP_Service" id="GOOG"><a title="Google" href="https://www.google.com/contacts/#806742283208806062" target="_blank" role="link" name="Google" tabindex="0"><span class="CP_Service_Icon" tabindex="-1" aria-hidden="true"><img src="https://p.pfx.ms/sn/PsaSmall/GOOGActive2.png"></span><span class="CP_Service_Name">Google</span></a></div><div class="CP_Service" id="GOOG"><a title="Google" href="https://www.google.com/contacts/#4443874497461670451" target="_blank" role="link" name="Google" tabindex="0"><span class="CP_Service_Icon" tabindex="-1" aria-hidden="true"><img src="https://p.pfx.ms/sn/PsaSmall/GOOGActive2.png"></span><span class="CP_Service_Name">Google</span></a></div></div>
+                </div>
+
+            </div>
+            <div class="col-md-5">
+
+                <div><b>Email:</b> email@email.com</div>
+                <div><b>Telefone:</b> 55 (11) 11234-1234 - <b><a href="/Home/Calendar">Detalhes de contato</a></b></div>
+
+                <hr />
+                <h4>Dados da Empresa:</h4>
+                <div><b>Nome:</b> Big Solutions</div>
+                <div><b>Endereço:</b> Avenida Paulista, 123</div>
+
+                <hr />
+                <div><b>Descrição:</b> Cara bacana, topa projetos diferentes</div>
+
+                <hr />
+                <div><b>Propostas:</b></div>
+                <ul>
+                    <li><a href="#">XX Abertos</a></li>
+                    <li><a href="#">XX Perdids</a></li>
+                    <li><a href="#">XX Enviadas</a></li>
+                    <li><a href="#">XX Fechadas</a></li>
+                </ul>
+                <hr />
+                <div>Produtos responsável:</div>
+                <ul>
+                    <li>Dealer Automotivo</li>
+                    <li>SBS</li>
+                </ul>
+
+            </div>
+            <div class="col-md-4">
+                <h4>Interações</h4>
+                <div class="well">11/04/2014 - Entrega de projeto</div>
+                <div class="well well-lg">04/04/2014 - Reunião</div>
+                <div class="well">02/04/2014 - Contato telefonico</div>
+                <div class="alert alert-danger">01/04/2014 - Briga no telefone</div>
+            </div>
+
+    </div>
+</div>
+
+@section styles{
+    <style>
+        tbody tr {
+            cursor: pointer;
+        }
+    </style>
+}

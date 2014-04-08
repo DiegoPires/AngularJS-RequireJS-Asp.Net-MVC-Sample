@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Select2.js</id>
+    <version>3.4.6</version>
+    <title>Select2.js</title>
+    <authors>Igor Vaynberg (Packaged by Jeremy Howard and Stefan Plattner)</authors>
+    <owners>Igor Vaynberg (Packaged by Jeremy Howard and Stefan Plattner)</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
+    <projectUrl>http://ivaynberg.github.com/select2/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A jQuery based replacement for select boxes. It supports searching, remote data sets, and infinite scrolling of results.</description>
+    <releaseNotes>Changelog from 3.4.5
+
+#2176 Fix Focus war with modals
+#2173 Select2 dropdown inside Bootstrap dropdown: IE8+ issue
+#2148 Update select2.css to prevent float &amp; width style to leak in
+#2147 Unit of measure px is redundant
+#2096 make selection on iOS more intuitive
+#2073 preventDefault on select2-removing doesn't cancel the event
+#2040 nextSearchTerm is not triggered when the first search is done after loading a page
+#2037 Changed default text for min number of characters.
+#2020 L10n files improved
+#2003 Enable nextSearchTerm function for multiple select
+#2002 Fix CSS linear-gradient syntax (gradients broken in IE10)
+#1987 Fixed plural suffix for Polish translation
+#1984 Fix problem with positioning the dropdown when it is on RHS
+#1971 Fix syntax error in Arabic locale file
+#1964 CSS dpi warning in chrome
+#1963 Fix georgian locale syntax error
+#1962 Add component.json
+#1949 version 3.4.5 does not work correctly on iPad
+#1940 Fix dropdown items not being reset after filtering and selecting when `closeOnSelect` is `false`
+#1938 Only pick up direct children when retrieving data in 'multiple' mode
+#1923 fix for Uncaught TypeError: Object #&lt;Object&gt; has no method 'abort'
+#1920 Prevent IE from generating unwanted clicks on the body.
+#1903 Support for Composer
+#1898 verbiage describe how to use id property with ajax calls.
+#1891 Fix for collision detection regarding enoughRoomOnRight and css border top for drop-auto-width
+#1888 gradient not working in IE10
+#1887 Improve position of dropdown when opening up
+#1885 Initial fix for main accessibility issues
+#1883 Georgian (Kartuli) language translation
+#1880 Pressing Enter on a multi select when not highlighting produces duplicate last value
+#1877 Styling fixes for RTL direction
+#1865 Fixed typos
+#1850 Fixed string used as regular expression for ID attribute (issue #1841)
+#1846 issue #1778: prevent delayed focus when the list is hidden
+#1728 Compatibility with jQuery 1.9 +
+#1685 formatResultCssClass option ignored when attached to select
+#1423 Select2 Arabic Translate.
+#1014 .select2("data", null) causes an error
+#595 Adding createSearchChoice at the end</releaseNotes>
+    <copyright />
+    <language>en-US</language>
+    <dependencies>
+      <dependency id="jQuery" version="1.7" />
+    </dependencies>
+  </metadata>
+</package>

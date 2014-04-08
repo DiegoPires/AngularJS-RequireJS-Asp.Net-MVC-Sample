@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+@*<h2>{{titulo}}</h2>
+
+    <p id="mensagem" ng-show="showMsg" ng-animate="{ show: 'fadeIn', hide: 'fadeOut' }">{{msg}}</p>*@
+
+<style type="text/css">
+    .fadeIn-setup, .fadeOut-setup {
+        -webkit-transition: 1s linear opacity;
+        -moz-transition: 1s linear opacity;
+        -o-transition: 1s linear opacity;
+        transition: 1s linear opacity;
+    }
+
+    .fadeIn-setup {
+        opacity: 0;
+    }
+
+    .fadeOut-setup {
+        opacity: 1;
+    }
+
+    .fadeIn-setup.fadeIn-start {
+        opacity: 1;
+    }
+
+    .fadeOut-setup.fadeOut-start {
+        opacity: 0;
+    }
+</style>
+
+<article class="agrupamento">
+    <div class="campo-6 calendario-detalhes">
+        <h3 class="calendario-detalhes-dia">{{diaMes}}</h3>
+        <h4 class="calendario-detalhes-dia-semana">{{diaSemana}}</h4>
+        <h2 class="calendario-detalhes-entregas">Entregas do dia</h2>
+
+        <ul class="entregas-dia">
+            <li ng-class="(i.Revisao[0].idRevisaoStatus == 1 ? 'entregas-dia-concluida' : '')" ng-repeat="i in entregas">
+                <i ng-class="(i.Revisao[0].idRevisaoStatus == 1 ? 'fa fa-check-circle' : 'fa fa-times-circle')"></i>
+                <span class="entregas-dia-nome-entrega">{{i.descricaoAtividade}}</span>
+                <span class="entregas-dia-nome-projeto">{{i.Projeto.nome}}</span>
+            </li>
+        </ul>
+        <div class="entregas-dia-legenda">
+            <p class="entregas-dia-legenda-entregue"><i class="fa fa-square"></i> Aprovados</p>
+            <p class="entregas-dia-legenda-pendente"><i class="fa fa-square"></i> Rejeitados</p>
+        </div>
+    </div>
+    <div class="campo-18 calendario">
+        <div class="page-header">
+            <div class="pull-right form-inline">
+                <div class="btn-group">
+                    <button class="btn btn-primary" data-calendar-nav="next">Próximo <i class="fa fa-angle-right"></i></button>
+                    <button class="btn" data-calendar-nav="today">Hoje</button>
+                    <button class="btn btn-primary" data-calendar-nav="prev"><i class="fa fa-angle-left"></i> Anterior</button>
+                </div>
+            </div>
+            <h3></h3>
+            <small>To see example with events navigate to march 2013</small>
+        </div>
+
+        <div id="calendar"></div>
+
+        <div class="btn-group pull-right">
+            <button class="btn" data-calendar-view="year">Ano</button>
+            <button class="btn active" data-calendar-view="month">Mês</button>
+            <button class="btn" data-calendar-view="week">Semana</button>
+            <button class="btn" data-calendar-view="day">Dia</button>
+        </div>
+
+    </div>
+</article>

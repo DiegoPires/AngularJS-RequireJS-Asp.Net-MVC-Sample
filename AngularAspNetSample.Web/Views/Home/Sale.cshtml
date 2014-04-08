@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Sale";
+}
+
+<div class="page-header">
+
+    <div class="pull-right form-inline">
+
+        <a href="#" class="" data-toggle="tooltip" data-placement="bottom" title="Bombando"><span style="font-size: 24px;" class="bs-glyphicons glyphicon  glyphicon-heart-empty"></span></a>
+        |
+
+        <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">
+            <i class="glyphicon glyphicon-plus"></i> Criar evento
+        </button>
+        |
+        
+        <select style="height:30px;">
+            <option>Aberto</option>
+            <option>Pendente</option>
+            <option>Perdido</option>
+            <option>Fechado</option>
+        </select>
+
+    </div>
+
+    <h3>Dashboard</h3>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div><b>Situação</b>: Aberto</div>
+        <div><b>Data fechamento</b>: XX/XX/XXXX</div>
+        <hr />
+
+        <div><b>Contato:</b> Boris Mesel</div>
+        <div><b>Email:</b> email@email.com</div>
+        <div><b>Telefone:</b> 55 (11) 11234-1234 - <b><a href="/Home/Calendar">Detalhes de contato</a></b></div>
+
+        <hr />
+        <div><b>Empresa:</b> Big Solutions</div>
+        <div><b>Endereço:</b> Avenida Paulista, 123</div>
+
+        <hr />
+        <div><b>Produto:</b> Dealer</div>
+        <div><b>Descrição:</b> De acordo com a necessidade XPTO foi verificado que da pra vender esse projeto</div>
+        
+    </div>
+    <div class="col-md-4">
+        <h4>Interações</h4>
+        <div class="well">11/04/2014 - Entrega de projeto</div>
+        <div class="well well-lg">04/04/2014 - Reunião</div>
+        <div class="well">02/04/2014 - Contato telefonico</div>
+        <div class="alert alert-danger">01/04/2014 - Briga no telefone</div>
+    </div>
+</div>
+
+@section scripts
+{
+
+}

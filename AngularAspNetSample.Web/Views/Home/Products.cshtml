@@ -1,0 +1,396 @@
+﻿@{
+    ViewBag.Title = "Products";
+}
+
+<h2>Produtos</h2>
+
+<ul class="nav nav-tabs">
+    <li><a href="#" id="link1">Produto</a></li>
+    <li><a href="#" id="link2">Editor</a></li>
+</ul>
+<br />
+<div class="etapa1">
+
+    <div class="row">
+        <div class="col-xs-8">
+            <form class="form" role="form">
+                <div class="form-group">
+                    <label for="inputEmail3">Nome</label>
+
+                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3">Arquivo da proposta (.pdf)</label>
+                    <input type="file" class="form-control" id="inputPassword3" placeholder="Password">
+                </div>
+
+                <button type="submit" class="btn btn-default">Salvar</button>
+            </form>
+        </div>
+        <div class="col-xs-4">
+
+            <div class="well"> <a href="#">Alertas de venda <span class="badge">42</span></a></div>
+
+            <div class="well"> R$ XX.XXX,XX em Vendas</div>
+
+            <div class="well"> X Vendas Fechadas</div>
+
+            <div class="well"> X Vendas Perdidas</div>
+
+        </div>
+    </div>
+        
+    </div>
+   <div class="etapa2">
+</div>
+
+<div class="etapa2" style="display:none">
+
+    <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+        <div class="btn-group">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i class="icon-font"></i><b class="caret"></b></a>
+            <ul class="dropdown-menu"></ul>
+        </div>
+        <div class="btn-group">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="icon-text-height"></i>&nbsp;<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
+                <li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
+                <li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
+            </ul>
+        </div>
+        <div class="btn-group">
+            <a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="icon-bold"></i></a>
+            <a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="icon-italic"></i></a>
+            <a class="btn" data-edit="strikethrough" title="Strikethrough"><i class="icon-strikethrough"></i></a>
+            <a class="btn" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i class="icon-underline"></i></a>
+        </div>
+        <div class="btn-group">
+            <a class="btn" data-edit="insertunorderedlist" title="Bullet list"><i class="icon-list-ul"></i></a>
+            <a class="btn" data-edit="insertorderedlist" title="Number list"><i class="icon-list-ol"></i></a>
+            <a class="btn" data-edit="outdent" title="Reduce indent (Shift+Tab)"><i class="icon-indent-left"></i></a>
+            <a class="btn" data-edit="indent" title="Indent (Tab)"><i class="icon-indent-right"></i></a>
+        </div>
+        <div class="btn-group">
+            <a class="btn" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)"><i class="icon-align-left"></i></a>
+            <a class="btn" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><i class="icon-align-center"></i></a>
+            <a class="btn" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i class="icon-align-right"></i></a>
+            <a class="btn" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i class="icon-align-justify"></i></a>
+        </div>
+        <div class="btn-group">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" title="Hyperlink"><i class="icon-link"></i></a>
+            <div class="dropdown-menu input-append">
+                <input class="span2" placeholder="URL" type="text" data-edit="createLink" />
+                <button class="btn" type="button">Add</button>
+            </div>
+            <a class="btn" data-edit="unlink" title="Remove Hyperlink"><i class="icon-cut"></i></a>
+
+        </div>
+
+        <div class="btn-group">
+            <a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="icon-picture"></i></a>
+            <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
+        </div>
+        <div class="btn-group">
+            <a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="icon-undo"></i></a>
+            <a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="icon-repeat"></i></a>
+        </div>
+    </div>
+
+    <div id="editor">
+        bla bla bla
+    </div>
+    
+    <div id="editor"></div>
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/bootstrap-wysiwyg.js"></script>
+    <script >
+        $(function()
+        {
+            function initToolbarBootstrapBindings() {
+                var fonts = ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier',
+                      'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Lucida Sans', 'Tahoma', 'Times',
+                      'Times New Roman', 'Verdana'],
+                      fontTarget = $('[title=Font]').siblings('.dropdown-menu');
+                $.each(fonts, function (idx, fontName) {
+                    fontTarget.append($('<li><a data-edit="fontName ' + fontName + '" style="font-family:\'' + fontName + '\'">' + fontName + '</a></li>'));
+                });
+                $('a[title]').tooltip({ container: 'body' });
+                $('.dropdown-menu input').click(function () { return false; })
+                    .change(function () { $(this).parent('.dropdown-menu').siblings('.dropdown-toggle').dropdown('toggle'); })
+                .keydown('esc', function () { this.value = ''; $(this).change(); });
+
+                $('[data-role=magic-overlay]').each(function () {
+                    var overlay = $(this), target = $(overlay.data('target'));
+                    overlay.css('opacity', 0).css('position', 'absolute').offset(target.offset()).width(target.outerWidth()).height(target.outerHeight());
+                });
+                if ("onwebkitspeechchange" in document.createElement("input")) {
+                    var editorOffset = $('#editor').offset();
+                    $('#voiceBtn').css('position', 'absolute').offset({ top: editorOffset.top, left: editorOffset.left + $('#editor').innerWidth() - 35 });
+                } else {
+                    $('#voiceBtn').hide();
+                }
+            };
+            function showErrorAlert(reason, detail) {
+                var msg = '';
+                if (reason === 'unsupported-file-type') { msg = "Unsupported format " + detail; }
+                else {
+                    console.log("error uploading file", reason, detail);
+                }
+                $('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>' +
+                 '<strong>File upload error</strong> ' + msg + ' </div>').prependTo('#alerts');
+            };
+            initToolbarBootstrapBindings();
+            $('#editor').wysiwyg({ fileUploadError: showErrorAlert });
+            //window.prettyPrint && prettyPrint();
+
+            $("#link1").click(function () {
+                $(".etapa1").show();
+                $(".etapa2").hide();
+            });
+            $("#link2").click(function () {
+                $(".etapa2").show();
+                $(".etapa1").hide();
+            });
+
+        })
+    </script>
+}
+
+@section styles
+{
+<!--link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"-->
+<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+    <style type="text/css">
+        /* this CSS is not part of the widget, it is here just as an example of the demo page styling.... Don't copy this one, roll your own. One
+ * of the key things about the widget is that it allows you to do your own styling!
+ */
+
+        #editor {
+            max-height: 250px;
+            height: 250px;
+            background-color: white;
+            border-collapse: separate;
+            border: 1px solid rgb(204, 204, 204);
+            padding: 4px;
+            box-sizing: content-box;
+            -webkit-box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset;
+            box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset;
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            border-bottom-left-radius: 3px;
+            border-top-left-radius: 3px;
+            overflow: scroll;
+            outline: none;
+        }
+
+        #voiceBtn {
+            width: 20px;
+            color: transparent;
+            background-color: transparent;
+            transform: scale(2.0, 2.0);
+            -webkit-transform: scale(2.0, 2.0);
+            -moz-transform: scale(2.0, 2.0);
+            border: transparent;
+            cursor: pointer;
+            box-shadow: none;
+            -webkit-box-shadow: none;
+        }
+
+        div[data-role="editor-toolbar"] {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .dropdown-menu a {
+            cursor: pointer;
+        }
+
+        .btn-group {
+            position: relative;
+            display: inline-block;
+            *display: inline;
+            *zoom: 1;
+            font-size: 0;
+            vertical-align: middle;
+            white-space: nowrap;
+            *margin-left: .3em;
+        }
+
+            .btn-group:first-child {
+                *margin-left: 0;
+            }
+
+            .btn-group + .btn-group {
+                margin-left: 5px;
+            }
+
+        .btn-toolbar {
+            font-size: 0;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+            .btn-toolbar > .btn + .btn, .btn-toolbar > .btn-group + .btn, .btn-toolbar > .btn + .btn-group {
+                margin-left: 5px;
+            }
+
+        .btn-group > .btn {
+            position: relative;
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+        }
+
+            .btn-group > .btn + .btn {
+                margin-left: -1px;
+            }
+
+        .btn-group > .btn, .btn-group > .dropdown-menu, .btn-group > .popover {
+            font-size: 14px;
+        }
+
+        .btn-group > .btn-mini {
+            font-size: 10.5px;
+        }
+
+        .btn-group > .btn-small {
+            font-size: 11.9px;
+        }
+
+        .btn-group > .btn-large {
+            font-size: 17.5px;
+        }
+
+        .btn-group > .btn:first-child {
+            margin-left: 0;
+            -webkit-border-top-left-radius: 4px;
+            -moz-border-radius-topleft: 4px;
+            border-top-left-radius: 4px;
+            -webkit-border-bottom-left-radius: 4px;
+            -moz-border-radius-bottomleft: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        .btn-group > .btn:last-child, .btn-group > .dropdown-toggle {
+            -webkit-border-top-right-radius: 4px;
+            -moz-border-radius-topright: 4px;
+            border-top-right-radius: 4px;
+            -webkit-border-bottom-right-radius: 4px;
+            -moz-border-radius-bottomright: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        .btn-group > .btn.large:first-child {
+            margin-left: 0;
+            -webkit-border-top-left-radius: 6px;
+            -moz-border-radius-topleft: 6px;
+            border-top-left-radius: 6px;
+            -webkit-border-bottom-left-radius: 6px;
+            -moz-border-radius-bottomleft: 6px;
+            border-bottom-left-radius: 6px;
+        }
+
+        .btn-group > .btn.large:last-child, .btn-group > .large.dropdown-toggle {
+            -webkit-border-top-right-radius: 6px;
+            -moz-border-radius-topright: 6px;
+            border-top-right-radius: 6px;
+            -webkit-border-bottom-right-radius: 6px;
+            -moz-border-radius-bottomright: 6px;
+            border-bottom-right-radius: 6px;
+        }
+
+        .btn-group > .btn:hover, .btn-group > .btn:focus, .btn-group > .btn:active, .btn-group > .btn.active {
+            z-index: 2;
+        }
+
+        .btn-group .dropdown-toggle:active, .btn-group.open .dropdown-toggle {
+            outline: 0;
+        }
+
+        .btn-group > .btn + .dropdown-toggle {
+            padding-left: 8px;
+            padding-right: 8px;
+            -webkit-box-shadow: inset 1px 0 0 rgba(255,255,255,.125), inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+            -moz-box-shadow: inset 1px 0 0 rgba(255,255,255,.125), inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+            box-shadow: inset 1px 0 0 rgba(255,255,255,.125), inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+            *padding-top: 5px;
+            *padding-bottom: 5px;
+        }
+
+        .btn-group > .btn-mini + .dropdown-toggle {
+            padding-left: 5px;
+            padding-right: 5px;
+            *padding-top: 2px;
+            *padding-bottom: 2px;
+        }
+
+        .btn-group > .btn-small + .dropdown-toggle {
+            *padding-top: 5px;
+            *padding-bottom: 4px;
+        }
+
+        .btn-group > .btn-large + .dropdown-toggle {
+            padding-left: 12px;
+            padding-right: 12px;
+            *padding-top: 7px;
+            *padding-bottom: 7px;
+        }
+
+        .btn-group.open .dropdown-toggle {
+            background-image: none;
+            -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+            -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+        }
+
+        .btn-group.open .btn.dropdown-toggle {
+            background-color: #e6e6e6;
+        }
+
+        .btn-group.open .btn-primary.dropdown-toggle {
+            background-color: #0044cc;
+        }
+
+        .btn-group.open .btn-warning.dropdown-toggle {
+            background-color: #f89406;
+        }
+
+        .btn-group.open .btn-danger.dropdown-toggle {
+            background-color: #bd362f;
+        }
+
+        .btn-group.open .btn-success.dropdown-toggle {
+            background-color: #51a351;
+        }
+
+        .btn-group.open .btn-info.dropdown-toggle {
+            background-color: #2f96b4;
+        }
+
+        .btn-group.open .btn-inverse.dropdown-toggle {
+            background-color: #222222;
+        }
+
+        .btn .caret {
+            margin-top: 8px;
+            margin-left: 0;
+        }
+
+        .btn-large .caret {
+            margin-top: 6px;
+        }
+
+        .btn-large .caret {
+            border-left-width: 5px;
+            border-right-width: 5px;
+            border-top-width: 5px;
+        }
+    </style>
+}

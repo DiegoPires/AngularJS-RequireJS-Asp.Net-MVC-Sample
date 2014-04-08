@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"
+      lang="en"
+      xmlns:ng="http://angularjs.org/">
+<!--<![endif]-->
+<head>
+
+    <title>AngularJS AMD + Asp.net MVC</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width" />
+
+    @Styles.Render("~/Content/css")
+
+    @RenderSection("styles", required: false)
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#/" class="navbar-brand">AngularJS Sample</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#/contatos"><i class="fa fa-user"></i>Contatos</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#/calendario"><i class="fa fa-user"></i>Calendário</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" class="tooltip" data-toggle="tooltip" data-placement="bottom" title="Ajuda"><span class="glyphicon glyphicon glyphicon-question-sign"></span></a></li>
+                    <li><a href="#" class="tooltip" data-toggle="tooltip" data-placement="bottom" title="Configurações"><span class="glyphicon glyphicon glyphicon-cog"></span></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Diego Silva Pires <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Alterar dados</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Logoff</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+
+        <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+            <div class="container">
+                <p>&copy; @DateTime.Now.Year - Angular Sample</p>
+            </div>
+        </nav>
+
+    </div>
+
+    <script data-main="app/main" src="/Scripts/require.js"></script>
+
+    <script type="text/javascript">
+        // TODO : Fazer funcionar no angular
+        //$('.tooltip').tooltip();
+    </script>
+</body>
+</html>
