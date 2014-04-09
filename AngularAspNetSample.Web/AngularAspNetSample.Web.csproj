@@ -39,6 +39,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.2.2\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.3.2.1\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -129,6 +135,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="App_Code\CastleWindsorControllerFactory.cs" />
     <Compile Include="Controllers\CalendarioController.cs" />
     <Compile Include="Controllers\ContatosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -136,7 +143,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequestHelpers.cs" />
+    <Compile Include="App_Code\WindsorConfigurator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\app.js" />
@@ -652,6 +659,20 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AngularAspNetSample.Core\AngularAspNetSample.Core.csproj">
+      <Project>{bc93eda0-6a3a-428f-99b2-b2504150ac8f}</Project>
+      <Name>AngularAspNetSample.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ANgularAspNetSample.Infra\AngularAspNetSample.Infra.csproj">
+      <Project>{e8b3a804-7539-4592-ab5a-783e51f12d2c}</Project>
+      <Name>AngularAspNetSample.Infra</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AngularAspNetSample.Service\AngularAspNetSample.Service.csproj">
+      <Project>{841903d1-b7c8-440d-bd57-4ae5932d3e58}</Project>
+      <Name>AngularAspNetSample.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

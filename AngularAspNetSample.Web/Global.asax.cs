@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AngularAspNetSample.Infra;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,6 +19,9 @@ namespace AngularAspNetSample.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(IoC.Container));
+            WindsorConfigurator.Configure();
         }
     }
 }

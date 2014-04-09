@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularAspNetSample.Data", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularAspNetSample.Core", "AngularAspNetSample.Core\AngularAspNetSample.Core.csproj", "{BC93EDA0-6A3A-428F-99B2-B2504150AC8F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularAspNetSample.Infra", "ANgularAspNetSample.Infra\AngularAspNetSample.Infra.csproj", "{E8B3A804-7539-4592-AB5A-783E51F12D2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularAspNetSample.Service", "AngularAspNetSample.Service\AngularAspNetSample.Service.csproj", "{841903D1-B7C8-440D-BD57-4AE5932D3E58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{BC93EDA0-6A3A-428F-99B2-B2504150AC8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC93EDA0-6A3A-428F-99B2-B2504150AC8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC93EDA0-6A3A-428F-99B2-B2504150AC8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8B3A804-7539-4592-AB5A-783E51F12D2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8B3A804-7539-4592-AB5A-783E51F12D2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8B3A804-7539-4592-AB5A-783E51F12D2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8B3A804-7539-4592-AB5A-783E51F12D2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{841903D1-B7C8-440D-BD57-4AE5932D3E58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{841903D1-B7C8-440D-BD57-4AE5932D3E58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{841903D1-B7C8-440D-BD57-4AE5932D3E58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{841903D1-B7C8-440D-BD57-4AE5932D3E58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

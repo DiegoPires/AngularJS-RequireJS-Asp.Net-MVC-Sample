@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AngularAspNetSample.Data
+namespace AngularAspNetSample.Core.Model
 {
-    public class Class1
+    public class Entidade
     {
+        public int Id { get; set; }
     }
 }
